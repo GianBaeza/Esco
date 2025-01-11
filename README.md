@@ -1,40 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Descripción General del Proyecto
+Esco es un e-commerce moderno, rápido y escalable diseñado para ofrecer una experiencia de compra intuitiva y fluida. Desarrollado utilizando Next.js con TypeScript, combina las ventajas del renderizado del lado del servidor (SSR) y el renderizado estático (SSG) para optimizar el rendimiento y mejorar el SEO, asegurando tiempos de carga rápidos y una indexación eficiente por parte de los motores de búsqueda.
 
-## Getting Started
+La arquitectura del proyecto está basada en componentes reutilizables y un sistema tipado sólido, gracias a TypeScript, lo que permite un desarrollo más eficiente, reducción de errores y un código mantenible a largo plazo.
 
-First, run the development server:
+Características Principales
+Interfaz de Usuario Responsiva
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Diseño adaptado para móviles, tabletas y escritorios, garantizando una experiencia óptima en cualquier dispositivo.
+Uso de frameworks modernos de estilos como Tailwind CSS o Styled Components.
+Gestión de Productos
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Catálogo dinámico de productos con filtros avanzados (categoría, precio, relevancia).
+Páginas de detalle de producto con imágenes de alta calidad, descripciones detalladas y reseñas.
+Carrito de Compras
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Funcionalidad de carrito persistente utilizando Context API o Redux para manejo de estados globales.
+Capacidad de agregar, eliminar o modificar cantidades de productos.
+Autenticación y Perfiles de Usuario
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-## Extensiones
-
-- [cookies-next](https://www.npmjs.com/package/cookies-next) - Una extensión para manejar cookies en Next.js.
+Registro e inicio de sesión con proveedores como Google o correo electrónico (implementado con NextAuth.js).
+Historial de pedidos, wishlist y datos personales gestionados de manera segura.
