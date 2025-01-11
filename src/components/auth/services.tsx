@@ -1,11 +1,14 @@
+"use client";
+
 export interface LoginUserInput {
   usuario: string;
   contraseña: string;
 }
 
-export const loginUser = async (user: LoginUserInput): Promise<any> => {
-  console.log("Intentando iniciar sesión con:", user);
-
+export const loginUser = async (
+  name: string,
+  password: string
+): Promise<any> => {
   try {
     const response = await fetch("https://dummyjson.com/auth/login", {
       method: "POST",
@@ -13,8 +16,8 @@ export const loginUser = async (user: LoginUserInput): Promise<any> => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username: user.usuario,
-        password: user.contraseña,
+        username: name,
+        password: password,
         expiresInMins: 60,
       }),
     });
@@ -28,8 +31,6 @@ export const loginUser = async (user: LoginUserInput): Promise<any> => {
 
     return data;
   } catch (error: any) {
-    console.error("Error en loginUser:", error.message);
-
     throw new Error(
       error.message ||
         "Ocurrió un error desconocido durante el inicio de sesión"

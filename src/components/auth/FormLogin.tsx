@@ -1,56 +1,79 @@
 "use client";
 
-import Input from "@/shared-ui/Input";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { loginUser } from "./services";
+import Input from "@/shared-ui/Input";
+import useStoreLogin from "@/context/StoreGlobal";
+import Link from "next/link";
 
-const field = [
-  { name: "usuario", type: "text" },
-  { name: "contraseña", type: "password" },
+interface LoginForm {
+  user: string;
+  password: string;
+}
+
+const fields = [
+  { name: "user", type: "text", label: "Usuario" },
+  { name: "password", type: "password", label: "Contraseña" },
 ];
 
 export default function FormLogin() {
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors },
-  } = useForm();
+  } = useForm<LoginForm>();
 
-  const onSubmit = async ({ usuario, contraseña }: any) => {
-    const user = {
-      usuario,
-      contraseña,
-    };
+  const { setLogin } = useStoreLogin();
+
+  const onSubmit = async ({ user, password }: LoginForm) => {
     try {
-      const response = await loginUser(user);
-      console.log("Inicio de sesión exitoso:", response);
+      await setLogin(user, password);
     } catch (error: any) {
-      console.error("Error en el inicio de sesión:", error.message);
+      console.error("Error al iniciar sesión:", error.message);
       alert("Error al iniciar sesión: " + error.message);
     }
   };
 
-  const valueData = getValues();
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col bg-red-500 rond p-3 justify-center items-center gap-4  rounded w-6/12  h-[300px]"
+      className="flex flex-col bg-white/10 px-6  justify-center items-center gap-4 rounded-xl max-w-[400px] h-[500px] font-tajawal font-medium  "
     >
-      {field.map(({ name, type }, i) => (
-        <label key={i} className="flex flex-col ">
-          {name}
+      <header className="flex flex-col w-full gap-2">
+        <h1 className="text-2xl  text-center "> Iniciar sesión</h1>
+        <p className="text-center text-md">
+          Ingresa tus credenciales para acceder a tu cuenta. Si olvidaste tu
+          usuario o contraseña, puedes recuperarlos en{" "}
+          <Link href="/">Opciones</Link>.
+        </p>
+      </header>
+
+      {/* Mapeo de los campos del formulario */}
+      {fields.map(({ name, type, label }, index) => (
+        <label key={index} className="flex flex-col w-9/12 ">
+          <p>{label}</p>
           <Input
-            {...register(name, { required: "Este campo es obligatorio" })}
+            {...register(name as keyof LoginForm, {
+              required: "Este campo es obligatorio",
+            })}
             type={type}
-            placeholder={name}
-            value={valueData.name || undefined}
+            placeholder={label}
+            // No necesitamos value manual, React Hook Form lo maneja internamente
           />
+          {errors[name as keyof LoginForm] && (
+            <span className="text-red-600 text-sm">
+              {errors[name as keyof LoginForm]?.message}
+            </span>
+          )}
         </label>
       ))}
-      <button type="submit">Enviar</button>
+
+      <button
+        type="submit"
+        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition-all"
+      >
+        Iniciar sesión
+      </button>
     </form>
   );
 }
