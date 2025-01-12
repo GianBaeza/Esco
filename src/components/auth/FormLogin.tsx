@@ -2,9 +2,10 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
-import Input from "@/shared-ui/Input";
 import useStoreLogin from "@/context/StoreGlobal";
 import Link from "next/link";
+import InputCustom from "@/shared-ui/InputCustom";
+import { useRouter } from "next/navigation";
 
 interface LoginForm {
   user: string;
@@ -22,12 +23,14 @@ export default function FormLogin() {
     handleSubmit,
     formState: { errors },
   } = useForm<LoginForm>();
+  const router = useRouter();
 
   const { setLogin } = useStoreLogin();
 
   const onSubmit = async ({ user, password }: LoginForm) => {
     try {
       await setLogin(user, password);
+      router.push("/home");
     } catch (error: any) {
       console.error("Error al iniciar sesión:", error.message);
       alert("Error al iniciar sesión: " + error.message);
@@ -52,7 +55,7 @@ export default function FormLogin() {
       {fields.map(({ name, type, label }, index) => (
         <label key={index} className="flex flex-col w-9/12 ">
           <p>{label}</p>
-          <Input
+          <InputCustom
             {...register(name as keyof LoginForm, {
               required: "Este campo es obligatorio",
             })}
@@ -70,7 +73,7 @@ export default function FormLogin() {
 
       <button
         type="submit"
-        className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition-all"
+        className=" border border-black text-white px-4 py-2 rounded hover:bg-gray-600 transition-all "
       >
         Iniciar sesión
       </button>

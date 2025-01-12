@@ -16,7 +16,7 @@ interface InputProps {
   register?: UseFormRegisterReturn;
 }
 
-const Input = ({
+const InputCustom = ({
   type,
   value,
   onChange,
@@ -32,10 +32,10 @@ const Input = ({
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className={`w-full p-1  text-base border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-xl ${className}`}
+      className={`w-full p-1  text-base border border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-xl ${className} text-black focus:border focus:border-b-purple-300`}
       {...rest}
     />
   );
 };
 
-export default Input;
+export default InputCustom;
