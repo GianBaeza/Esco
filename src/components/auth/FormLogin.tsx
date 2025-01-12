@@ -2,10 +2,10 @@
 
 import React from "react";
 import { useForm } from "react-hook-form";
-import useStoreLogin from "@/context/StoreGlobal";
 import Link from "next/link";
-import InputCustom from "@/shared-ui/InputCustom";
 import { useRouter } from "next/navigation";
+import useStoreLogin from "@/context/StoreGlobal";
+import InputCustom from "@/shared-ui/InputCustom";
 
 interface LoginForm {
   user: string;

@@ -4,7 +4,6 @@ import { loginUser } from "@/components/auth/services";
 import { setCookie } from "cookies-next";
 import { create } from "zustand";
 
-// Define la estructura del estado
 interface AuthState {
   username: string;
   accessToken: string;
@@ -12,7 +11,6 @@ interface AuthState {
   setLogin: (name: string, password: string) => Promise<void>;
 }
 
-// Implementación del store con Zustand
 const useStoreLogin = create<AuthState>((set) => ({
   username: "",
   accessToken: "",
@@ -28,8 +26,7 @@ const useStoreLogin = create<AuthState>((set) => ({
         setCookie("username", username);
         setCookie("refreshToken", refreshToken);
       }
-    } catch (error: any) {
-      console.error("Error al iniciar sesión:", error.message);
+    } catch (error) {
       throw new Error("No se pudo iniciar sesión. Verifica tus credenciales.");
     }
   },
