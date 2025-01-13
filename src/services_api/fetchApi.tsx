@@ -4,6 +4,7 @@ export const getProductAlls = async () => {
   try {
     const options = {
       method: "GET",
+      next: { revalidate: 600 },
     };
     const response = await fetch(base_URL, options);
     if (!response.ok) {
