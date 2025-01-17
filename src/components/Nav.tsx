@@ -8,6 +8,7 @@ const navLinks = [
   { nombre: "Inicio", url: "/" },
   { nombre: "Nosotros", url: "/nosotros" },
   { nombre: "Servicios", url: "/servicios" },
+  { nombre: "Productos", url: "/Productos" },
   { nombre: "Contacto", url: "/contacto" },
 ];
 

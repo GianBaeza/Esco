@@ -1,13 +1,21 @@
+import ProductsDestac from "@/features/home/ProductsDestac";
 import Seccion1 from "@/features/home/Seccion1";
-import { ProductResponse } from "@/features/Interface/Seccion1";
+import { Product } from "@/features/Interface/Seccion1";
 import { getProductAlls } from "@/services_api/fetchApi";
 
 export default async function App() {
-  const productos_All: ProductResponse = await getProductAlls();
+  const getAllProducts = await getProductAlls();
 
+  const stockDestact = 30;
+  const prodsDestac: Product[] = getAllProducts.filter((prod) => {
+    return prod.stock > stockDestact;
+  });
   return (
-    <div className="bg-green-200 w-full h-screen overflow-auto">
-      <Seccion1 />
-    </div>
+    <>
+      <div className=" w-full h-full overflow-auto">
+        <Seccion1 />
+        <ProductsDestac prodsDestac={prodsDestac} />
+      </div>
+    </>
   );
 }

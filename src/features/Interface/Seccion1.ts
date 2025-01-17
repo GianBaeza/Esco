@@ -44,3 +44,6 @@ export interface ProductResponse {
   skip: number;
   limit: number;
 }
+export interface ProductsDestacProps {
+  prodsDestac: Product[];
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { loginUser } from "@/components/auth/services";
+import { getProductAlls } from "@/services_api/fetchApi";
 import { setCookie } from "cookies-next";
 import { create } from "zustand";
 
@@ -32,4 +33,4 @@ const useStoreLogin = create<AuthState>((set) => ({
   },
 }));
 
-export default useStoreLogin;
+export { useStoreLogin };

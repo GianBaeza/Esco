@@ -1,5 +1,13 @@
+import { ProductResponse } from "@/features/Interface/Seccion1";
+import ContentAllProducts from "@/features/Productos/Components/ContentAllProducts";
+import { getProductAlls } from "@/services_api/fetchApi";
 import React from "react";
 
-export default function Home() {
-  return <div className="bg-red-500 h-screen w-full">Home</div>;
+export default async function Home() {
+  const productos_All: ProductResponse = (await getProductAlls()) || [];
+  return (
+    <div className=" h-auto w-full">
+      <ContentAllProducts productos_All={productos_All} />
+    </div>
+  );
 }
