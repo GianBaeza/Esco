@@ -10,6 +10,7 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
   const [categoryActive, setCategoryActive] = useState("Todos");
 
   console.log(prodsDestac);
+
   const handleChangeCategory = (category: string) => {
     setCategoryActive(category);
     setProducsFiltered(
@@ -20,8 +21,8 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
   };
   return (
     <main className="w-full h-full flex flex-col flex-wrap justify-center item-start gap-5 pt-5">
-      <header className="w-full">
-        <h1 className="text-2xl font-lora font-bold pl-7">
+      <header className="w-full pt-1">
+        <h1 className="text-2xl font-tajawal font-bold pl-7 pt-5">
           Productos destacados
         </h1>
         <MenuNavigate

@@ -8,7 +8,7 @@ const navLinks = [
   { nombre: "Inicio", url: "/" },
   { nombre: "Nosotros", url: "/nosotros" },
   { nombre: "Servicios", url: "/servicios" },
-  { nombre: "Productos", url: "/Productos" },
+  { nombre: "Productos", url: "/productos" },
   { nombre: "Contacto", url: "/contacto" },
 ];
 
@@ -16,7 +16,7 @@ export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="flex justify-between items-center w-full h-16 px-6 bg-white shadow-md fixed lg:static top-0 z-50">
+    <header className="flex justify-between items-center w-full h-16 px-6 bg-white shadow-md fixed lg:static top-0 z-50 font-tajawal">
       <div className="text-xl font-semibold text-gray-800">
         <Link href="/">LOGO</Link>
       </div>

@@ -1,11 +1,11 @@
-"USE CLIENT";
-
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 interface Props {
+  idProducts: number;
   title: string;
   stock: number;
-  images: string[]; // Asumiendo que las imágenes son cadenas de texto (URLs o rutas)
+  images: string[];
   sku: string;
   price: number;
   description: string;
@@ -13,16 +13,15 @@ interface Props {
 }
 
 export default function CardProducts({
+  idProducts,
   title,
   stock,
   images,
-  sku,
   price,
-  description,
   category,
 }: Props) {
   return (
-    <article className="bg-slate-600/20 w-80  h-[25rem] p-4  rounded-md shadow-lg">
+    <article className="bg-slate-600/20 w-80  h-[25rem] p-4   rounded-md shadow-lg">
       <header>
         <figure
           className="w
@@ -31,29 +30,29 @@ export default function CardProducts({
           <Image
             src={images[0]}
             alt={`Image of ${title}`}
-            width={100}
+            width={250}
             height={200}
             className="object-cover rounded-md"
           />
-          <figcaption>{title}</figcaption>
+          <figcaption className="font-tajawal">{title}</figcaption>
         </figure>
       </header>
 
       <section>
-        <h2>{title}</h2>
-        <p>
+        <p className="font-tajawal">
           <strong>Category:</strong> {category}
         </p>
-        <p>{description}</p>
       </section>
 
       <footer>
         <p>
           <strong>Price:</strong> ${price} | <strong>Stock:</strong> {stock}
         </p>
-        <p>
-          <strong>SKU:</strong> {sku}
-        </p>
+        <Link href={`/productos/${idProducts}`}>
+          <button className="p-2 bg-green-500 text-white rounded">
+            Ver detalles
+          </button>
+        </Link>
       </footer>
     </article>
   );

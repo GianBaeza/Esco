@@ -7,7 +7,7 @@ export default async function Home() {
   const productos_All: ProductResponse = (await getProductAlls()) || [];
   return (
     <div className=" h-auto w-full">
-      <ContentAllProducts productos_All={productos_All} />
+      <ContentAllProducts allProducts={productos_All} />
     </div>
   );
 }

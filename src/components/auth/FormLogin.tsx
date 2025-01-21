@@ -4,8 +4,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import useStoreLogin from "@/context/StoreGlobal";
 import InputCustom from "@/shared-ui/InputCustom";
+import { useStoreLogin } from "@/context/StoreGlobal";
 
 interface LoginForm {
   user: string;
