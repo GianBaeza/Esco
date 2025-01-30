@@ -9,8 +9,6 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
   const [producsFiltered, setProducsFiltered] = useState(prodsDestac);
   const [categoryActive, setCategoryActive] = useState("Todos");
 
-  console.log(prodsDestac);
-
   const handleChangeCategory = (category: string) => {
     setCategoryActive(category);
     setProducsFiltered(
@@ -19,6 +17,7 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
         : prodsDestac.filter((prod) => prod.category === category.toLowerCase())
     );
   };
+
   return (
     <main className="w-full h-full flex flex-col flex-wrap justify-center item-start gap-5 pt-5">
       <header className="w-full pt-1">
@@ -54,6 +53,7 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
               price={price}
               description={description}
               category={category}
+              idProducts={id}
             />
           );
         })}

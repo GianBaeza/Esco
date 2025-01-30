@@ -2,10 +2,8 @@ import FormLogin from "@/components/auth/FormLogin";
 
 export default function Login() {
   return (
-    <>
-      <div className=" inset-0 -z-10 h-full w-full [background:radial-gradient(115%_125%_at_50%_10%,#3D3D3D_45%,#63e_100%)] flex items-center justify-center">
-        <FormLogin />
-      </div>
-    </>
+    <div className="w-full flex justify-center items-center h-screen">
+      <FormLogin />
+    </div>
   );
 }

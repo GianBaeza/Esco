@@ -12,6 +12,7 @@ const getDetailProdcts = async (idProd) => {
 
 export default async function Page({ params }) {
   const { idProd } = params;
+
   const detail = (await getDetailProdcts(idProd)) || [];
 
   return (

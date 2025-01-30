@@ -1,5 +1,6 @@
+import HomePage from "@/features/home/HomePage";
 import ProductsDestac from "@/features/home/ProductsDestac";
-import Seccion1 from "@/features/home/Seccion1";
+import QuienesSomos from "@/features/home/QuienesSomos";
 import { Product } from "@/features/Interface/Seccion1";
 import { getProductAlls } from "@/services_api/fetchApi";
 
@@ -10,12 +11,12 @@ export default async function App() {
   const prodsDestac: Product[] = getAllProducts.filter((prod) => {
     return prod.stock > stockDestact;
   });
+
   return (
-    <>
-      <div className=" w-full h-full overflow-auto">
-        <Seccion1 />
-        <ProductsDestac prodsDestac={prodsDestac} />
-      </div>
-    </>
+    <div className=" w-full h-full overflow-auto">
+      <HomePage />
+      <ProductsDestac prodsDestac={prodsDestac} />
+      <QuienesSomos />
+    </div>
   );
 }

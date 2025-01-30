@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lora.className} ${tajawal.className}`}>
-        <header>
+        <main className=" inset-0 -z-10 min-h-screen w-full [background:radial-gradient(115%_125%_at_50%_10%,#3D3D3D_45%,#63e_100%)] bg-cover">
           <Nav />
-        </header>
-        <main>{children}</main>
-        <footer>a</footer>
+          {children}
+        </main>
+        <footer>footer global</footer>
       </body>
     </html>
   );

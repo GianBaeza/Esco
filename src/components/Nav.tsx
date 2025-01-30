@@ -10,13 +10,14 @@ const navLinks = [
   { nombre: "Servicios", url: "/servicios" },
   { nombre: "Productos", url: "/productos" },
   { nombre: "Contacto", url: "/contacto" },
+  { nombre: "Iniciar Sesion", url: "/login" },
 ];
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="flex justify-between items-center w-full h-16 px-6 bg-white shadow-md fixed lg:static top-0 z-50 font-tajawal">
+    <header className="flex justify-between items-center w-full h-16 px-6 bg-black/5 shadow-md fixed lg:static top-0 z-50 font-tajawal">
       <div className="text-xl font-semibold text-gray-800">
         <Link href="/">LOGO</Link>
       </div>
@@ -33,14 +34,14 @@ export default function Nav() {
       <nav
         className={`${
           isOpen ? "block" : "hidden"
-        } absolute top-16 left-0 w-full lg:pr-20 shadow-md lg:shadow-none lg:static lg:flex lg:items-center lg:w-auto bg-white `}
+        } absolute top-16 left-0 w-full lg:pr-20 shadow-md lg:shadow-none lg:static lg:flex lg:items-center lg:w-auto   `}
       >
         <ul className="flex flex-col gap-4 p-4 lg:flex-row lg:gap-8 lg:p-0">
           {navLinks.map((link, index) => (
             <li key={index} className="text-center">
               <Link
                 href={link.url}
-                className="text-gray-700 hover:text-gray-900 hover:underline transition"
+                className="text-white hover:text-gray-900 hover:underline transition"
               >
                 {link.nombre}
               </Link>

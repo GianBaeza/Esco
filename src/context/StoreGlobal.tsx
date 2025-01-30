@@ -27,6 +27,7 @@ const useStoreLogin = create<AuthState>((set) => ({
         setCookie("refreshToken", refreshToken);
       }
     } catch (error) {
+      console.log(error);
       throw new Error("No se pudo iniciar sesión. Verifica tus credenciales.");
     }
   },

@@ -1,10 +1,9 @@
-"use client";
 import React from "react";
 import { GradualSpacing } from "@/components/eldoraui/gradualspacing";
 import ButtonDefault from "@/shared-ui/ButtonDefault";
 import Link from "next/link";
 
-export default function Seccion1() {
+export default function HomePage() {
   return (
     <>
       {" "}
