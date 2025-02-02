@@ -3,6 +3,7 @@ import ProductsDestac from "@/features/home/ProductsDestac";
 import QuienesSomos from "@/features/home/QuienesSomos";
 import { Product } from "@/features/Interface/Seccion1";
 import { getProductAlls } from "@/services_api/fetchApi";
+import { ToastContainer } from "react-toastify";
 
 export default async function App() {
   const getAllProducts = await getProductAlls();
@@ -14,6 +15,7 @@ export default async function App() {
 
   return (
     <div className=" w-full h-full overflow-auto">
+      <ToastContainer />
       <HomePage />
       <ProductsDestac prodsDestac={prodsDestac} />
       <QuienesSomos />

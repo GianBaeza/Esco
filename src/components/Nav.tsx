@@ -1,7 +1,9 @@
 "use client";
+import { useStoreCarrito } from "@/context/StoreGlobal";
 import Hamburger from "hamburger-react";
 import Link from "next/link";
 import { useState } from "react";
+import { PiShoppingCartBold } from "react-icons/pi";
 
 // Lista de enlaces de navegación
 const navLinks = [
@@ -15,6 +17,7 @@ const navLinks = [
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { carrito } = useStoreCarrito();
 
   return (
     <header className="flex justify-between items-center w-full h-16 px-6 bg-black/5 shadow-md fixed lg:static top-0 z-50 font-tajawal">
@@ -47,6 +50,14 @@ export default function Nav() {
               </Link>
             </li>
           ))}
+          <li>
+            <Link
+              href={"/Carrito"}
+              className="text-white flex items-center gap-2 cursor-pointer"
+            >
+              <PiShoppingCartBold color="white" /> {carrito.length || 0}
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>

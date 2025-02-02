@@ -3,13 +3,8 @@
 import { loginUser } from "@/components/auth/services";
 import { setCookie } from "cookies-next";
 import { create } from "zustand";
-
-interface AuthState {
-  username: string;
-  accessToken: string;
-  refreshToken: string;
-  setLogin: (name: string, password: string) => Promise<void>;
-}
+import { AuthState, CarritoState } from "./Interface";
+import NotificacionGlobal from "@/components/alerta/NotificacionGlobal";
 
 const useStoreLogin = create<AuthState>((set) => ({
   username: "",
@@ -33,4 +28,14 @@ const useStoreLogin = create<AuthState>((set) => ({
   },
 }));
 
-export { useStoreLogin };
+const useStoreCarrito = create<CarritoState>((set) => ({
+  carrito: [],
+
+  setCarrito: (producto) => {
+    if (!producto) return;
+
+    set((state) => ({ carrito: [...state.carrito, producto] }));
+  },
+}));
+
+export { useStoreLogin, useStoreCarrito };
