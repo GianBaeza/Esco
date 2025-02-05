@@ -26,7 +26,7 @@ export default function HomePage() {
         </section>
 
         <article className="h-full w-4/12  flex  gap-5 items-end justify-center z-10 pb-72 pr-72">
-          <Link href={"/Productos"}>
+          <Link href={"/productos"}>
             <ButtonDefault className="">Productos</ButtonDefault>
           </Link>
           <ButtonDefault className="">Contacto</ButtonDefault>

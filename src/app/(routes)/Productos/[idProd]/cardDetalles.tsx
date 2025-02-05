@@ -1,19 +1,39 @@
 "use client";
-import { useStoreCarrito } from "@/context/StoreGlobal";
+import Contador from "@/components/contador/Contador";
+import { useStoreCarrito, useStoreLogin } from "@/context/StoreGlobal";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 export default function CardDetalles({ detail }) {
   const { setCarrito } = useStoreCarrito();
+  const { accessToken } = useStoreLogin();
+  const [cantidad, setCantidad] = useState(0);
+
+  console.log(accessToken);
+  const handleClick = (valor) => {
+    if (valor < 0) return;
+    setCantidad(valor);
+  };
+
   const handleAddCarrito = () => {
-    const prodctAdd = {
+    if (!accessToken) {
+      alert("inicie session o registrese");
+
+      return;
+    }
+    const productAdd = {
       imagen: detail.images[0],
       nombre: detail.title,
-      descripcion: detail.descripcion,
-      precio: detail.precio,
+      descripcion: detail.description,
+      precio: detail.price,
+      cantidad: cantidad,
     };
-    alert(` ${prodctAdd.nombre}producto agregado correctamente`);
-    setCarrito(prodctAdd);
+    if (cantidad > 1) {
+      productAdd.total = productAdd.precio * productAdd.cantidad;
+    }
+    alert(` ${productAdd.nombre}producto agregado correctamente`);
+    console.log(productAdd);
+    setCarrito(productAdd);
   };
 
   return (
@@ -36,6 +56,7 @@ export default function CardDetalles({ detail }) {
       </div>
 
       <div className="text-center">
+        <Contador handleClick={handleClick} cantidad={cantidad} />
         <button
           className="bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300"
           onClick={handleAddCarrito}
