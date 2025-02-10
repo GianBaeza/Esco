@@ -4,6 +4,7 @@ import { useState } from "react";
 import CardProducts from "../Productos/Components/CardProducst";
 import MenuNavigate from "./Components/MenuNavigate";
 import { ProductsDestacProps } from "../Interface/Seccion1";
+import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
 
 export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
   const [producsFiltered, setProducsFiltered] = useState(prodsDestac);
@@ -44,17 +45,22 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
           } = prod;
 
           return (
-            <CardProducts
+            <SpotlightCard
+              className="custom-spotlight-card flex flex-col gap-2"
+              spotlightColor="rgba(0, 229, 255, 0.2)"
               key={id}
-              title={title}
-              stock={stock}
-              images={images}
-              sku={sku}
-              price={price}
-              description={description}
-              category={category}
-              idProducts={id}
-            />
+            >
+              <CardProducts
+                title={title}
+                stock={stock}
+                images={images}
+                sku={sku}
+                price={price}
+                description={description}
+                category={category}
+                idProducts={id}
+              />
+            </SpotlightCard>
           );
         })}
       </section>

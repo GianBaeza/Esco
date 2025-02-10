@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "background-home-seccion1": "url('/seccion1background.jpg')", //
+        "background-home-seccion1": "url('/seccion1background.jpg')",
       },
       fontFamily: {
         lora: ["Lora", "serif"],
@@ -11,5 +11,16 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".colorTexto": {
+          color: "#ffffff",
+        },
+        ".colorTextoOpacity": {
+          color: "rgba(255, 255, 255, 0.4)",
+        },
+      });
+    },
+  ],
 };
