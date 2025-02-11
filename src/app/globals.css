@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.ArrowButton__Button-sc-1ikb0hj-1.dZkckO {
+  color: white; /* Cambia el color del contenido de la flecha */
+  background-color: rgba(221, 214, 214, 0.5); /* Fondo de la flecha */
+  border-radius: 10%; /* Mantén el estilo circular */
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ArrowButton__Button-sc-1ikb0hj-1.dZkckO:hover {
+  background-color: rgba(146, 145, 145, 0.8);
+  transform: scale(1.1);
+}
+.ArrowButton__Button-sc-1ikb0hj-1.bBfHpH {
+  color: white; /* Cambia el color del contenido de la flecha */
+  background-color: rgba(221, 214, 214, 0.5); /* Fondo de la flecha */
+  border-radius: 10%; /* Mantén el estilo circular */
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ArrowButton__Button-sc-1ikb0hj-1.bBfHpH:hover {
+  color: yellow; /* Cambia el color al pasar el mouse */
+  background-color: rgba(146, 145, 145, 0.8);
+  transform: scale(1.1);
+}

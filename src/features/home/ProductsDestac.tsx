@@ -46,20 +46,22 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
 
           return (
             <SpotlightCard
-              className="custom-spotlight-card flex flex-col gap-2 max-w-96 max-h-[40rem]"
-              spotlightColor="rgba(0, 229, 255, 0.2)"
+              className="custom-spotlight-card"
+              spotlightColor="rgba(222, 222, 222, 0.2)"
               key={id}
             >
-              <CardProducts
-                title={title}
-                stock={stock}
-                images={images}
-                sku={sku}
-                price={price}
-                description={description}
-                category={category}
-                idProducts={id}
-              />
+              <div className=" flex w-[20rem] h-auto p-5">
+                <CardProducts
+                  title={title}
+                  stock={stock}
+                  images={images}
+                  sku={sku}
+                  price={price}
+                  description={description}
+                  category={category}
+                  idProducts={id}
+                />
+              </div>
             </SpotlightCard>
           );
         })}

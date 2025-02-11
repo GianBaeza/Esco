@@ -2,7 +2,7 @@
 
 export default function Contador({ handleClick, cantidad }) {
   return (
-    <div className=" flex items-center justify-center gap-8 m-auto p-1 w-auto">
+    <div className="flex gap-5 justify-center items-center w-full">
       <button
         onClick={() => handleClick(cantidad - 1)}
         className="bg-slate-300 px-3 rounded-lg"

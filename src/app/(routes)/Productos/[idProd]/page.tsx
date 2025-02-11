@@ -14,13 +14,16 @@ export default async function Page({ params }) {
   const { idProd } = params;
 
   const detail = (await getDetailProdcts(idProd)) || [];
+  const { title } = detail;
 
   return (
-    <div className="max-w-3xl mx-auto p-4 bg-white shadow-lg rounded-lg mt-8">
-      <h1 className="text-3xl font-semibold text-center text-gray-800 mb-4">
-        Eyeshadow Palette with Mirror
-      </h1>
-      <CardDetalles detail={detail} />
+    <div className="w-full h-screen m-auto bg-white shadow-lg rounded-lg">
+      <main className="w-11/12  m-auto pt-10">
+        <h1 className="text-3xl font-semibold text-center text-gray-800 mb-4">
+          Detalles de {title}
+        </h1>
+        <CardDetalles detail={detail} />
+      </main>
     </div>
   );
 }

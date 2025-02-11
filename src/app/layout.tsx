@@ -13,7 +13,7 @@ const tajawal = TajawalFont({
   style: ["normal"],
   subsets: ["latin"],
 });
-
+// [background:radial-gradient(115%_125%_at_50%_10%,#3D3D3D_45%,#63e_100%)]
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lora.className} ${tajawal.className}`}>
-        <main className=" inset-0 -z-10 min-h-screen w-full [background:radial-gradient(115%_125%_at_50%_10%,#3D3D3D_45%,#63e_100%)] bg-cover">
+        <main className=" inset-0 -z-10 min-h-screen w-full  bg-cover">
           <Nav />
           {children}
         </main>

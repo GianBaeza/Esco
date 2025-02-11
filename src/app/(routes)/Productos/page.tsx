@@ -1,3 +1,4 @@
+import LoaderGlobal from "@/components/loaderGlobal/LoaderGlobal";
 import { ProductResponse } from "@/features/Interface/Seccion1";
 import ContentAllProducts from "@/features/Productos/Components/ContentAllProducts";
 import { getProductAlls } from "@/services_api/fetchApi";
@@ -7,7 +8,7 @@ export default async function Home() {
   const productos_All: ProductResponse = (await getProductAlls()) || [];
   return (
     <div className=" h-auto w-full">
-      <Suspense fallback={<div>loading...</div>}>
+      <Suspense fallback={<LoaderGlobal />}>
         <ContentAllProducts allProducts={productos_All} />
       </Suspense>
     </div>

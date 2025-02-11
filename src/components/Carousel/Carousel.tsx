@@ -3,16 +3,18 @@
 import React from "react";
 import Carousel from "better-react-carousel";
 import Image from "next/image";
+import "../../app/globals.css";
 
 export const Gallery = ({ images }) => {
+  console.log(images);
   return (
     <Carousel
       cols={1}
       rows={1}
       gap={0}
       loop={true}
-      hideArrow={true}
-      autoplay={2000}
+      hideArrow={images.length <= 1}
+      autoplay
     >
       {images.map((url, i) => (
         <Carousel.Item key={i}>
@@ -21,7 +23,7 @@ export const Gallery = ({ images }) => {
               src={url}
               alt={`imagen ${i + 1}`}
               width={250}
-              height={250}
+              height={200}
               style={{ objectFit: "cover", borderRadius: "10px" }}
             />
           </div>
