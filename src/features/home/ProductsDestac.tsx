@@ -46,7 +46,7 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
 
           return (
             <SpotlightCard
-              className="custom-spotlight-card flex flex-col gap-2"
+              className="custom-spotlight-card flex flex-col gap-2 max-w-96 max-h-[40rem]"
               spotlightColor="rgba(0, 229, 255, 0.2)"
               key={id}
             >

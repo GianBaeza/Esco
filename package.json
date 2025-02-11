@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@material-tailwind/react": "^2.1.10",
+    "better-react-carousel": "^1.1.2",
     "clsx": "^2.1.1",
     "cookies-next": "^5.0.2",
     "framer-motion": "^11.18.0",

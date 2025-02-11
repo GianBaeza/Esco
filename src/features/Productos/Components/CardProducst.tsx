@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { CarouselCustomNavigation } from "@/components/Carousel/CarouselCustomNavigation";
+import { Gallery } from "@/components/Carousel/Carousel";
 interface Props {
   idProducts: number;
   title: string;
@@ -20,7 +22,6 @@ export default function CardProducts({
   price,
   category,
 }: Props) {
-  console.log(images, " DESDE IMAGES");
   return (
     <>
       {" "}
@@ -28,13 +29,8 @@ export default function CardProducts({
         className="w
         full flex flex-col items-center justify-center  colorTexto"
       >
-        <Image
-          src={images[0]}
-          alt={`Image of ${title}`}
-          width={250}
-          height={200}
-          className="object-cover rounded-md z-10"
-        />
+        <Gallery images={images} />
+
         <figcaption className="font-tajawal colorTexto">{title}</figcaption>
       </figure>
       <p className="font-tajawal colorTexto ">

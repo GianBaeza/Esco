@@ -1,4 +1,6 @@
+import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
 import CardProducst from "./CardProducst";
+import CardProducts from "./CardProducst";
 
 export default function ContentAllProducts({ allProducts }) {
   return (
@@ -16,17 +18,22 @@ export default function ContentAllProducts({ allProducts }) {
             images,
           } = prod;
           return (
-            <CardProducst
+            <SpotlightCard
+              className="custom-spotlight-card flex flex-col gap-2 max-w-96 max-h-[40rem]"
+              spotlightColor="rgba(0, 229, 255, 0.2)"
               key={id}
-              idProducts={id}
-              title={title}
-              stock={stock}
-              images={images}
-              sku={sku}
-              price={price}
-              description={description}
-              category={category}
-            />
+            >
+              <CardProducts
+                title={title}
+                stock={stock}
+                images={images}
+                sku={sku}
+                price={price}
+                description={description}
+                category={category}
+                idProducts={id}
+              />
+            </SpotlightCard>
           );
         })}
       </main>
