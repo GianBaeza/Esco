@@ -1,5 +1,3 @@
-"use client";
-
 export default function Contador({ handleClick, cantidad }) {
   return (
     <div className="flex gap-5 justify-center items-center w-full">

@@ -1,3 +1,5 @@
+import { ProductAdd } from "@/app/(routes)/productos/[idProd]/Interface/Interface";
+
 export interface AuthState {
   username: string;
   accessToken: string;
@@ -6,13 +8,6 @@ export interface AuthState {
 }
 
 export interface CarritoState {
-  carrito: Producto[];
-  setCarrito: (producto: Producto) => void;
-}
-
-export interface Producto {
-  id: string;
-  nombre: string;
-  precio: number;
-  cantidad: number;
+  carrito: ProductAdd[];
+  setCarrito: (producto: ProductAdd) => void;
 }

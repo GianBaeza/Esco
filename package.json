@@ -13,6 +13,7 @@
     "better-react-carousel": "^1.1.2",
     "clsx": "^2.1.1",
     "cookies-next": "^5.0.2",
+    "date-fns": "^4.1.0",
     "framer-motion": "^11.18.0",
     "hamburger-react": "^2.5.2",
     "install": "^0.13.0",
