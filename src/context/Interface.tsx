@@ -4,6 +4,7 @@ export interface AuthState {
   username: string;
   accessToken: string;
   refreshToken: string;
+  loading: boolean;
   setLogin: (name: string, password: string) => Promise<void>;
 }
 

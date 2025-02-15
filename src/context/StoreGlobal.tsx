@@ -1,7 +1,7 @@
 "use client";
 
 import { loginUser } from "@/components/auth/services";
-import { getCookie, setCookie } from "cookies-next";
+import { deleteCookie, setCookie } from "cookies-next";
 import { create } from "zustand";
 import { AuthState, CarritoState } from "./Interface";
 import { persist, createJSONStorage } from "zustand/middleware";
@@ -12,9 +12,11 @@ const useStoreLogin = create<AuthState>()(
       username: "",
       accessToken: "",
       refreshToken: "",
+      loading: false,
 
       // Método para realizar el login y almacenar los tokens
       setLogin: async (name, password) => {
+        set({ loading: true });
         try {
           const response = await loginUser(name, password);
           const { accessToken, refreshToken, username } = response;
@@ -33,16 +35,20 @@ const useStoreLogin = create<AuthState>()(
           throw new Error(
             "No se pudo iniciar sesión. Verifica tus credenciales."
           );
+        } finally {
+          set({ loading: false });
         }
+      },
+      logOut: () => {
+        deleteCookie("accessToken");
+        deleteCookie("refreshToken");
+        deleteCookie("username");
+        set({ username: "", accessToken: "", refreshToken: "" });
+        localStorage.clear();
+        return true;
       },
 
       // Método para cargar los datos persistidos desde las cookies
-      loadPersistedData: () => {
-        const username = getCookie("username") || "";
-        const accessToken = getCookie("accessToken") || "";
-        const refreshToken = getCookie("refreshToken") || "";
-        set({ username, accessToken, refreshToken });
-      },
     }),
     {
       name: "auth-storage",
