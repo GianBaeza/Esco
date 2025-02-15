@@ -31,10 +31,7 @@ const useStoreLogin = create<AuthState>()(
           // Establecer los datos en la tienda (zustand)
           set({ username, accessToken, refreshToken });
         } catch (error) {
-          console.log(error);
-          throw new Error(
-            "No se pudo iniciar sesión. Verifica tus credenciales."
-          );
+          throw error;
         } finally {
           set({ loading: false });
         }

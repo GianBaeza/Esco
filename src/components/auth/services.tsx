@@ -22,6 +22,8 @@ export const loginUser = async (
 
     if (!response.ok) {
       const errorData = await response.json();
+      console.log(errorData);
+
       throw new Error(errorData.message || "Error al iniciar sesión");
     }
 
@@ -29,9 +31,6 @@ export const loginUser = async (
 
     return data;
   } catch (error: any) {
-    throw new Error(
-      error.message ||
-        "Ocurrió un error desconocido durante el inicio de sesión"
-    );
+    throw error.message;
   }
 };

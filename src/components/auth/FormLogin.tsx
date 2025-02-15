@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -22,6 +22,7 @@ export default function FormLogin() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
   } = useForm<LoginForm>();
   const router = useRouter();
@@ -33,17 +34,18 @@ export default function FormLogin() {
       await setLogin(user, password);
       router.push("/home");
     } catch (error) {
-      console.error("Error al iniciar sesión:", error.message);
-      alert("Error al iniciar sesión: " + error.message);
+      setError("user", {
+        type: "manual",
+        message: error instanceof Error ? error.message : String(error),
+      });
     }
   };
-
   return (
     <>
       {loading && <LoaderGlobal />}
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col bg-white/10 px-6  justify-center items-center gap-4 rounded-xl max-w-[400px] h-[500px] font-tajawal font-medium  "
+        className="flex flex-col bg-slate-500/10 px-6  justify-center items-center gap-4 rounded-xl max-w-[400px] h-[500px] font-tajawal font-medium  "
       >
         <header className="flex flex-col w-full gap-2">
           <h1 className="text-2xl  text-center "> Iniciar sesión</h1>
@@ -67,7 +69,7 @@ export default function FormLogin() {
               // No necesitamos value manual, React Hook Form lo maneja internamente
             />
             {errors[name as keyof LoginForm] && (
-              <span className="text-red-600 text-sm">
+              <span className="text-red-600 text-sm pt-3">
                 {errors[name as keyof LoginForm]?.message}
               </span>
             )}
@@ -76,7 +78,7 @@ export default function FormLogin() {
 
         <button
           type="submit"
-          className=" border border-black text-white px-4 py-2 rounded hover:bg-gray-600 transition-all "
+          className=" border border-black text-black px-4 py-2 rounded hover:bg-gray-600 transition-all "
         >
           Iniciar sesión
         </button>

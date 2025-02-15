@@ -6,6 +6,7 @@ export interface AuthState {
   refreshToken: string;
   loading: boolean;
   setLogin: (name: string, password: string) => Promise<void>;
+  logOut: () => boolean;
 }
 
 export interface CarritoState {
