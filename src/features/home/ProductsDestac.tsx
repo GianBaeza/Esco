@@ -20,19 +20,22 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
   };
 
   return (
-    <main className="w-full h-full flex flex-col flex-wrap justify-center item-start gap-5 pt-5">
-      <header className="w-full pt-1">
-        <h1 className="text-2xl font-tajawal font-bold pl-7 pt-5">
-          Productos destacados
-        </h1>
+    <main className="w-full h-full flex flex-col flex-wrap justify-center item-start gap-5 pt-5 bg-black">
+      <header className="w-10/12 pt-1 m-auto">
+        <article className="w-full flex items-center justify-evenly pt-5">
+          <h1 className="text-3xl font-tajawal font-bold pl-7 text-white">
+            Productos destacados
+          </h1>
+          <hr className=" h-px bg-black  w-7/12" />
+        </article>
         <MenuNavigate
           handleChangeCategory={handleChangeCategory}
           categoryActive={categoryActive}
         />
       </header>
 
-      <section className="flex flex-wrap justify-center min-h-screen  gap-5 pt-5 ">
-        {producsFiltered.map((prod) => {
+      <section className="flex flex-wrap justify-center min-h-screen lg:w-10/12 m-auto gap-5 pt-5 ">
+        {producsFiltered.slice(0, 6).map((prod) => {
           const {
             id,
             title,
@@ -46,11 +49,11 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
 
           return (
             <SpotlightCard
-              className="custom-spotlight-card"
-              spotlightColor="rgba(222, 222, 222, 0.2)"
+              className="custom-spotlight-card h-[30rem] bg-gray-200  border-none"
+              spotlightColor="rgba(0, 0, 0, 0.30)" // Negro suave
               key={id}
             >
-              <div className=" flex w-[20rem] h-auto p-5">
+              <div className=" flex w-[20rem] max-h[30rem] p-5">
                 <CardProducts
                   title={title}
                   stock={stock}

@@ -8,7 +8,7 @@ export default function MenuNavigate({ handleChangeCategory, categoryActive }) {
         {categoryArray.map((category, i) => (
           <li
             key={i}
-            className={`cursor-pointer transition-all duration-300 ease-in-out ${
+            className={`cursor-pointer transition-all duration-300 ease-in-out  text-xl text-white ${
               categoryActive === category ? "bg-slate-400" : "bg-transparent"
             } p-1 rounded-t-md`}
             onClick={() => handleChangeCategory(category)}

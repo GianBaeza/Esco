@@ -1,7 +1,5 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { CarouselCustomNavigation } from "@/components/Carousel/CarouselCustomNavigation";
 import { Gallery } from "@/components/Carousel/Carousel";
 interface Props {
   idProducts: number;
@@ -23,7 +21,7 @@ export default function CardProducts({
   category,
 }: Props) {
   return (
-    <div className="  flex flex-col justify-center items-start h-full w-full">
+    <div className="  flex flex-col justify-center items-start h-auto w-full">
       {" "}
       <Gallery images={images} />
       <section className=" w-full flex flex-col items-start">
@@ -42,7 +40,7 @@ export default function CardProducts({
       </section>
       <footer className="pl-5 ">
         <Link href={`/productos/${idProducts}`}>
-          <button className="py-1 px-2 bg-traparent text-white rounded  border border-white ">
+          <button className="py-1 px-2 bg-traparent text-black rounded  border border-black ">
             Ver detalles
           </button>
         </Link>
