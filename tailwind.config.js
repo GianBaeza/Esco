@@ -15,10 +15,10 @@ module.exports = {
     function ({ addUtilities }) {
       addUtilities({
         ".colorTexto": {
-          color: "black",
+          color: "white",
         },
         ".colorTextoOpacity": {
-          color: "rgba(0, 0, 0, 0.44)",
+          color: "#ffffffb3",
         },
       });
     },

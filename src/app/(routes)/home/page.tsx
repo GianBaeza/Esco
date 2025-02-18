@@ -1,6 +1,7 @@
 import HomePage from "@/features/home/HomePage";
 import ProductsDestac from "@/features/home/ProductsDestac";
 import QuienesSomos from "@/features/home/QuienesSomos";
+import TotalVentas from "@/features/home/TotalVentas";
 import { Product } from "@/features/Interface/Seccion1";
 import { getProductAlls } from "@/services_api/fetchApi";
 import { ToastContainer } from "react-toastify";
@@ -17,6 +18,7 @@ export default async function Home() {
     <div className=" w-full h-full overflow-auto">
       <ToastContainer />
       <HomePage />
+      <TotalVentas />
       <ProductsDestac prodsDestac={prodsDestac} />
       <QuienesSomos />
     </div>

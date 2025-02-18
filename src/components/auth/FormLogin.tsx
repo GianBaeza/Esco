@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -56,7 +55,6 @@ export default function FormLogin() {
           </p>
         </header>
 
-        {/* Mapeo de los campos del formulario */}
         {fields.map(({ name, type, label }, index) => (
           <label key={index} className="flex flex-col w-9/12 ">
             <p>{label}</p>
@@ -66,7 +64,6 @@ export default function FormLogin() {
               })}
               type={type}
               placeholder={label}
-              // No necesitamos value manual, React Hook Form lo maneja internamente
             />
             {errors[name as keyof LoginForm] && (
               <span className="text-red-600 text-sm pt-3">

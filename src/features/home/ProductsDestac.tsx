@@ -20,7 +20,7 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
   };
 
   return (
-    <main className="w-full h-full flex flex-col flex-wrap justify-center item-start gap-5 pt-5 bg-black">
+    <main className="w-full h-full flex flex-col flex-wrap justify-center item-start gap-5 pt-5 p-5 bg-black">
       <header className="w-10/12 pt-1 m-auto">
         <article className="w-full flex items-center justify-evenly pt-5">
           <h1 className="text-3xl font-tajawal font-bold pl-7 text-white">
@@ -34,7 +34,7 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
         />
       </header>
 
-      <section className="flex flex-wrap justify-center min-h-screen lg:w-10/12 m-auto gap-5 pt-5 ">
+      <section className="flex flex-wrap justify-center min-h-screen lg:w-10/12 m-auto gap-5 p-10">
         {producsFiltered.slice(0, 6).map((prod) => {
           const {
             id,
