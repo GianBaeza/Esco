@@ -6,9 +6,12 @@ interface Props {
   allProducts: Product[];
 }
 export default function ContentAllProducts({ allProducts }: Props) {
-  console.log(allProducts, "TITULO");
   return (
     <div>
+      <header className="w-9/12 m-auto h-auto flex  justify-between items-center my-10">
+        <h2>Todos Los Productos</h2>
+        <input type="search" className="border" />
+      </header>
       <main className=" w-full h-full p-5 flex flex-wrap gap-5 justify-center">
         {allProducts.map((prod) => {
           const {

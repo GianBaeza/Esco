@@ -35,7 +35,7 @@ export default function TotalVentas() {
           {totalventas.map(({ id, title, total }) => {
             return (
               <SpotlightCard
-                className="  bg-transparent border-none  w-64 h-[14rem] flex flex-col text-center items-center justify-center"
+                className="  bg-transparent border-none  w-full md:w-64 h-[14rem] flex flex-col text-center items-center justify-center"
                 spotlightColor="rgba(222, 222, 222, 0.2)"
                 key={id}
               >
@@ -47,11 +47,15 @@ export default function TotalVentas() {
                     separator=","
                     direction="up"
                     duration={2}
-                    className="count-up-text text-orange-400 text-4xl"
+                    className="count-up-text text-orange-400 text-xl md:text-4xl"
                   />{" "}
-                  <p className="font-medium text-2xl text-orange-400">+</p>
+                  <p className="font-medium text-lg md:text-2xl text-orange-400">
+                    +
+                  </p>
                 </span>
-                <h2 className="text-orange-400 font-bold  text-3xl">{title}</h2>
+                <h2 className="text-orange-400 font-bold  text-xl md:text-3xl">
+                  {title}
+                </h2>
               </SpotlightCard>
             );
           })}
