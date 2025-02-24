@@ -5,7 +5,10 @@ import Carousel from "better-react-carousel";
 import Image from "next/image";
 import "../../app/globals.css";
 
-export const Gallery = ({ images }) => {
+interface Props {
+  images: string[];
+}
+export const Gallery = ({ images }: Props) => {
   console.log(images);
   return (
     <Carousel
@@ -16,7 +19,7 @@ export const Gallery = ({ images }) => {
       hideArrow={images.length <= 1}
       autoplay
     >
-      {images.map((url, i) => (
+      {images.map((url: string, i: number) => (
         <Carousel.Item key={i}>
           <div className="w-full m-auto flex items-center justify-center">
             <Image

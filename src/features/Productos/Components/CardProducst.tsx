@@ -23,7 +23,9 @@ export default function CardProducts({
   return (
     <div className="  flex flex-col justify-center items-start h-auto w-full">
       {" "}
-      <Gallery images={images} />
+      <Gallery
+        images={title !== "Calvin Klein CK One" ? images : images.slice(1, 3)}
+      />
       <section className=" w-full flex flex-col items-start">
         <h4 className="font-tajawal colorTexto m-auto">{title}</h4>
         <p className="font-tajawal colorTexto pl-5 ">

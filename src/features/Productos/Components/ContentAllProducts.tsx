@@ -1,11 +1,15 @@
 import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
-import CardProducst from "./CardProducst";
 import CardProducts from "./CardProducst";
+import { Product } from "@/features/Interface/Seccion1";
 
-export default function ContentAllProducts({ allProducts }) {
+interface Props {
+  allProducts: Product[];
+}
+export default function ContentAllProducts({ allProducts }: Props) {
+  console.log(allProducts, "TITULO");
   return (
     <div>
-      <main className="bg-red-200 w-full h-full p-5 flex flex-wrap gap-5 justify-center">
+      <main className=" w-full h-full p-5 flex flex-wrap gap-5 justify-center">
         {allProducts.map((prod) => {
           const {
             id,

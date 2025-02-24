@@ -10,12 +10,12 @@ export default async function Home() {
   const getAllProducts = await getProductAlls();
 
   const stockDestact = 30;
-  const prodsDestac: Product[] = getAllProducts.filter((prod) => {
+  const prodsDestac: Product[] = getAllProducts.filter((prod: Product) => {
     return prod.stock > stockDestact;
   });
 
   return (
-    <div className=" w-full h-full overflow-auto">
+    <div className=" w-full h-full overflow-auto bg-black">
       <ToastContainer />
       <HomePage />
       <TotalVentas />

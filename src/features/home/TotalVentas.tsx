@@ -2,7 +2,12 @@ import CountUp from "@/components/countUp/CountUp";
 import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
 import React from "react";
 
-const totalventas = [
+interface TotalVentasProps {
+  id: number;
+  title: string;
+  total: number;
+}
+const totalventas: TotalVentasProps[] = [
   {
     id: 1,
     title: "Ventas",
