@@ -24,7 +24,6 @@ export default function CountUp({
   duration = 2, // Duration of the animation in seconds
   className = "",
   startWhen = true,
-  separator = "",
   onStart,
   onEnd,
 }: CountUpProps) {
@@ -42,10 +41,20 @@ export default function CountUp({
 
   const isInView = useInView(ref, { once: true, margin: "0px" });
 
+  // Function to format numbers in K/M notation
+  const formatNumber = (num: number): string => {
+    if (num >= 1_000_000) {
+      return (num / 1_000_000).toFixed(1).replace(".0", "") + "M";
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(1).replace(".0", "") + "K";
+    }
+    return num.toString();
+  };
+
   // Set initial text content to the initial value based on direction
   useEffect(() => {
     if (ref.current) {
-      ref.current.textContent = String(direction === "down" ? to : from);
+      ref.current.textContent = formatNumber(direction === "down" ? to : from);
     }
   }, [from, to, direction]);
 
@@ -88,24 +97,12 @@ export default function CountUp({
   useEffect(() => {
     const unsubscribe = springValue.on("change", (latest) => {
       if (ref.current) {
-        const options = {
-          useGrouping: !!separator,
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 0,
-        };
-
-        const formattedNumber = Intl.NumberFormat("en-US", options).format(
-          Number(latest.toFixed(0))
-        );
-
-        ref.current.textContent = separator
-          ? formattedNumber.replace(/,/g, separator)
-          : formattedNumber;
+        ref.current.textContent = formatNumber(Number(latest.toFixed(0)));
       }
     });
 
     return () => unsubscribe();
-  }, [springValue, separator]);
+  }, [springValue]);
 
   return <span className={`${className}`} ref={ref} />;
 }

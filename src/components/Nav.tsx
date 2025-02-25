@@ -50,21 +50,21 @@ export default function Nav() {
         <Link href="/">LOGO</Link>
       </div>
 
-      <div className="lg:hidden">
+      <div className="lg:hidden ">
         <Hamburger
           toggled={isOpen}
           toggle={setIsOpen}
           size={22}
-          color="#4A4A4A"
+          color="#ffffff"
         />
       </div>
 
       <nav
         className={`${
           isOpen ? "block" : "hidden"
-        } absolute top-16 left-0 w-full lg:pr-20 shadow-md lg:shadow-none lg:static lg:flex lg:items-center lg:w-auto   `}
+        } absolute top-16 left-0 w-full lg:pr-20 shadow-md lg:shadow-none lg:static lg:flex lg:items-center lg:w-auto`}
       >
-        <ul className="flex flex-col gap-4 p-4 lg:flex-row lg:gap-8 lg:p-0">
+        <ul className="flex flex-col  items-center justify-center  lg:items-start lg:justify-normal gap-4 p-4 lg:flex-row lg:gap-8 lg:p-0  bg-black/70 lg:bg-transparent">
           {navLinks.map(({ nombre, url }, index) => (
             <li key={index} className="text-center">
               <Link
@@ -85,7 +85,9 @@ export default function Nav() {
           </li>
           <li className="flex gap-2">
             <button
-              onClick={() => router.push("/")}
+              onClick={() => {
+                router.push("/");
+              }}
               className={`bg-black text-white ${
                 !accessToken ? "flex" : "hidden"
               }`}

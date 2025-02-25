@@ -17,7 +17,7 @@ export interface Review {
 }
 
 export interface ProductAdd {
-  imagen: string;
+  imagen: string[];
   nombre: string;
   descripcion: string;
   precio: number;

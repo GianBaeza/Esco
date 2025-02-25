@@ -1,13 +1,14 @@
 "use client";
 import Contador from "@/components/contador/Contador";
 import { useStoreCarrito, useStoreLogin } from "@/context/StoreGlobal";
-import Image from "next/image";
 import React, { useState } from "react";
 import { ProductAdd, ProductDetalle } from "./Interface/Interface";
+import EmblaCarousel from "@/components/CarouselDetallesProd/EmblaCarousel";
 
 interface Props {
   detallesDelProducto: ProductDetalle;
 }
+
 export default function CardDetalles({ detallesDelProducto }: Props) {
   const { setCarrito } = useStoreCarrito();
   const { accessToken } = useStoreLogin();
@@ -52,15 +53,13 @@ export default function CardDetalles({ detallesDelProducto }: Props) {
   };
 
   console.log(detallesDelProducto);
+
+  console.log(images, "IMAGENES");
   return (
     <div className="flex flex-col md:flex-row w-full lg:w-10/12 lg:m-auto items-center justify-center md:justify-between">
-      <Image
-        width={500}
-        height={500}
-        src={images[0] || ""}
-        alt={title || "Product image"}
-        className="w-full max-w-sm lg:max-w-lg mx-auto rounded-xl mb-4"
-      />
+      <div className="w-5/12">
+        <EmblaCarousel images={images} />
+      </div>
 
       <section className="flex flex-col gap-3 items-center md:items-start w-full lg:w-6/12 min-h-[25rem] lg:p-6 bg-white">
         <h2 className="text-xl font-semibold text-gray-800 mb-2">{title}</h2>

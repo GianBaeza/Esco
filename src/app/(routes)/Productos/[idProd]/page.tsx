@@ -18,13 +18,15 @@ export default async function Page({ params }) {
   const { title, reviews } = detail;
 
   return (
-    <div className="w-full h-screen m-auto bg-white shadow-lg rounded-lg">
+    <div className="w-full min-h-screen m-auto bg-white shadow-lg rounded-lg">
       <main className=" md:w-full lg:w-11/12  m-auto pt-44 lg:pt-10">
         <h1 className="text-3xl font-semibold text-center text-gray-800 mb-4">
           Detalles de {title}
         </h1>
-        <CardDetalles detallesDelProducto={detail} />
-        <ReviewsProducst reviewsProd={reviews} />
+        <section className="flex flex-col gap-5">
+          <CardDetalles detallesDelProducto={detail} />
+          <ReviewsProducst reviewsProd={reviews} />
+        </section>
       </main>
     </div>
   );
