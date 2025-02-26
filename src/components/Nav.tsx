@@ -6,6 +6,13 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { PiShoppingCartBold } from "react-icons/pi";
 import Swal from "sweetalert2";
+import {
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+  Button,
+} from "@material-tailwind/react";
 
 interface NavLink {
   nombre: string;
@@ -76,12 +83,24 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            <Link
-              href={"/Carrito"}
-              className="text-white flex items-center gap-2 cursor-pointer"
-            >
-              <PiShoppingCartBold color="white" /> {carrito.length || 0}
-            </Link>
+            <Menu>
+              <MenuHandler>
+                <span className="text-white flex items-center gap-2 cursor-pointer">
+                  <PiShoppingCartBold color="white" /> {carrito.length || 0}
+                </span>
+              </MenuHandler>
+              <MenuList className="flex flex-col items-start gap-2  ">
+                <button className="bg-transparent hover:bg-blue-gray-200/50 w-full text-start rounded-lg p-1">
+                  Ver Resumen{" "}
+                </button>
+                <Link
+                  href={"/carrito"}
+                  className="bg-transparent hover:bg-blue-gray-200/50 w-full text-start rounded-lg p-1"
+                >
+                  Carrito
+                </Link>
+              </MenuList>
+            </Menu>
           </li>
           <li className="flex gap-2">
             <button

@@ -10,8 +10,8 @@ export default function Carrito() {
   return (
     <>
       {carrito.length > 0 ? (
-        carrito.map((item) => {
-          return <p key={item.id}>{item.nombre}</p>;
+        carrito.map((item, i) => {
+          return <p key={i}>{item.nombre}</p>;
         })
       ) : (
         <p>No hay productos en el carrito</p>

@@ -4,6 +4,8 @@ import { useStoreCarrito, useStoreLogin } from "@/context/StoreGlobal";
 import React, { useState } from "react";
 import { ProductAdd, ProductDetalle } from "./Interface/Interface";
 import EmblaCarousel from "@/components/CarouselDetallesProd/EmblaCarousel";
+import { Notificacion } from "@/components/alerta/Notificacion";
+import { ToastContainer } from "react-toastify";
 
 interface Props {
   detallesDelProducto: ProductDetalle;
@@ -13,6 +15,7 @@ export default function CardDetalles({ detallesDelProducto }: Props) {
   const { setCarrito } = useStoreCarrito();
   const { accessToken } = useStoreLogin();
   const [cantidad, setCantidad] = useState(0);
+  const [mensajeError, setMensajeError] = useState(false);
 
   if (!detallesDelProducto) {
     return <p>Producto no encontrado</p>;
@@ -29,7 +32,10 @@ export default function CardDetalles({ detallesDelProducto }: Props) {
   } = detallesDelProducto;
 
   const handleClick = (valor: number) => {
-    if (valor < 0 || stock <= 0) return;
+    if (valor < 0 || stock <= 0) {
+      return;
+    }
+    setMensajeError(false);
     setCantidad(valor);
   };
 
@@ -38,25 +44,29 @@ export default function CardDetalles({ detallesDelProducto }: Props) {
       alert("Inicie sesión o regístrese");
       return;
     }
+    if (cantidad <= 0) {
+      setMensajeError(true);
+      return;
+    }
 
     const productAdd: ProductAdd = {
-      imagen: images[0],
+      imagen: images,
       nombre: title,
       descripcion: description,
       precio: price,
       cantidad: cantidad,
       total: price * cantidad,
     };
-
-    alert(`${productAdd.nombre} agregado correctamente`);
+    Notificacion({
+      textoNotificacion: "Producto agregado al carrito",
+      valor: "verde",
+    });
     setCarrito(productAdd);
   };
 
-  console.log(detallesDelProducto);
-
-  console.log(images, "IMAGENES");
   return (
     <div className="flex flex-col md:flex-row w-full lg:w-10/12 lg:m-auto items-center justify-center md:justify-between">
+      <ToastContainer />
       <div className="w-5/12">
         <EmblaCarousel images={images} />
       </div>
@@ -73,6 +83,9 @@ export default function CardDetalles({ detallesDelProducto }: Props) {
 
         <div className="flex flex-col items-start gap-3 w-auto mt-4">
           <Contador handleClick={handleClick} cantidad={cantidad} />
+          {mensajeError ? (
+            <p className="text-red-500 text-sm">Seleccione una cantidad</p>
+          ) : null}
           <div className="flex md:flex-row flex-col gap-5">
             <button
               className="text-black hover:text-white border py-1 px-3 rounded-lg hover:bg-gray-600 transition duration-300"
