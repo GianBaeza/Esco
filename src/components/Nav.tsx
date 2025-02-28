@@ -89,7 +89,7 @@ export default function Nav() {
                   <PiShoppingCartBold color="white" /> {carrito.length || 0}
                 </span>
               </MenuHandler>
-              <MenuList className="flex flex-col items-start gap-2  ">
+              <MenuList className="flex flex-col items-start gap-1  ">
                 <button className="bg-transparent hover:bg-blue-gray-200/50 w-full text-start rounded-lg p-1">
                   Ver Resumen{" "}
                 </button>
