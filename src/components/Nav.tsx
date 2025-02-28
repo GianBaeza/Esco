@@ -13,6 +13,8 @@ import {
   MenuItem,
   Button,
 } from "@material-tailwind/react";
+import { createPortal } from "react-dom";
+import ModalsContainter from "@/features/carrito/components/ModalsContainter";
 
 interface NavLink {
   nombre: string;
@@ -30,6 +32,7 @@ const navLinks: NavLink[] = [
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpenResumen, setIsOpenResumen] = useState(false)
   const { carrito } = useStoreCarrito();
   const { logOut, accessToken } = useStoreLogin();
   const router = useRouter();
@@ -51,6 +54,11 @@ export default function Nav() {
       }
     });
   };
+
+  const handleOpenResumen = ()=>{
+    setIsOpenResumen(!isOpenResumen)
+  }
+  console.log(isOpenResumen)
   return (
     <header className="flex justify-between items-center w-full h-16 px-6 bg-black shadow-md fixed lg:static top-0 z-50 font-tajawal">
       <div className="text-xl font-semibold text-gray-800">
@@ -90,7 +98,7 @@ export default function Nav() {
                 </span>
               </MenuHandler>
               <MenuList className="flex flex-col items-start gap-2">
-                <button className="bg-transparent hover:bg-blue-gray-200/50 w-full text-start rounded-lg p-1">
+                <button className="bg-transparent hover:bg-blue-gray-200/50 w-full text-start rounded-lg p-1" onClick={handleOpenResumen}>
                   Ver Resumen{" "}
                 </button>
                 <Link
@@ -102,6 +110,7 @@ export default function Nav() {
               </MenuList>
             </Menu>
           </li>
+          {isOpenResumen && createPortal(<ModalsContainter handleOpenResumen={handleOpenResumen} isOpenResumen={isOpenResumen}/>,document.body)}
           <li className="flex gap-2">
             <button
               onClick={() => {
