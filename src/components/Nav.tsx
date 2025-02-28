@@ -76,7 +76,7 @@ export default function Nav() {
             <li key={index} className="text-center">
               <Link
                 href={url}
-                className="text-white hover:text-gray-300 hover:underline transition"
+                className="text-white/90 hover:text-gray-300 hover:underline transition"
               >
                 {nombre}
               </Link>
