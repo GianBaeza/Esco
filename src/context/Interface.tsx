@@ -12,4 +12,5 @@ export interface AuthState {
 export interface CarritoState {
   carrito: ProductAdd[];
   setCarrito: (producto: ProductAdd) => void;
+  totalDelCarrito: ()=> number
 }

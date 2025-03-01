@@ -42,7 +42,7 @@ export default function CardProducts({
       </section>
       <footer className="pl-5 ">
         <Link href={`/productos/${idProducts}`}>
-          <button className="py-1 px-2 bg-traparent colorTexto rounded  border border-white hover:bg-slate-300  hover:text-gray-800 transition-all ease-in-out duration-300">
+          <button className="py-1 px-2 bg-traparent bg-black rounded  border border-white hover:bg-slate-300  hover:text-gray-800 transition-all ease-in-out duration-300">
             Ver detalles
           </button>
         </Link>
