@@ -83,7 +83,7 @@ const useStoreCarrito = create<CarritoState>()(
             return { carrito: updatedCarrito };
           } else {
             // Si el producto no existe, lo agregamos al carrito
-            return { carrito: [...state.carrito, { ...producto, cantidad: producto.cantidadSeleccionada }] }; // Asignar la cantidad seleccionada
+            return { carrito: [...state.carrito, { ...producto, cantidad: producto.cantidad }] }; // Asignar la cantidad seleccionada
           }
         });
       },
@@ -92,6 +92,9 @@ const useStoreCarrito = create<CarritoState>()(
         if(carrito.length <= 0 ) return 0
         const total =  carrito.reduce((acc,act)=> acc + act.total, 0 )
         return Number(total.toFixed(2))
+      },
+      deleteProduct:(nombre:string)=>{
+         set((state)=> ({carrito: state.carrito.filter((prod)=> prod.nombre !== nombre )}))
       }
     }),
     

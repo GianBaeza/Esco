@@ -13,4 +13,5 @@ export interface CarritoState {
   carrito: ProductAdd[];
   setCarrito: (producto: ProductAdd) => void;
   totalDelCarrito: ()=> number
+  deleteProduct:(nombre:string) => void
 }
