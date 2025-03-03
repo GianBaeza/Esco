@@ -5,8 +5,6 @@ import React from "react";
 export default function Carrito() {
   const { carrito } = useStoreCarrito();
 
-  console.log(carrito);
-
   return (
     <>
       {carrito.length > 0 ? (
