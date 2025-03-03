@@ -4,17 +4,11 @@ import Hamburger from "hamburger-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { PiShoppingCartBold } from "react-icons/pi";
+import { PiShoppingCartBold, PiUser } from "react-icons/pi";
 import Swal from "sweetalert2";
-import {
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-  Button,
-} from "@material-tailwind/react";
 import { createPortal } from "react-dom";
 import ModalsContainter from "@/features/carrito/components/ModalsContainter";
+import MenulistGlobal from "./MenuList/MenulistGlobal";
 
 interface NavLink {
   nombre: string;
@@ -32,9 +26,9 @@ const navLinks: NavLink[] = [
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isOpenResumen, setIsOpenResumen] = useState(false)
+  const [isOpenResumen, setIsOpenResumen] = useState(false);
   const { carrito } = useStoreCarrito();
-  const { logOut, accessToken } = useStoreLogin();
+  const { logOut, accessToken, username } = useStoreLogin();
   const router = useRouter();
 
   const handleCerrarSession = () => {
@@ -55,12 +49,12 @@ export default function Nav() {
     });
   };
 
-  const handleOpenResumen = ()=>{
-    setIsOpenResumen(!isOpenResumen)
-  }
-  console.log(isOpenResumen)
+  const handleOpenResumen = () => {
+    setIsOpenResumen(!isOpenResumen);
+  };
+
   return (
-    <header className="flex justify-between items-center w-full h-16 px-6 bg-black shadow-md fixed lg:static top-0 z-50 font-tajawal">
+    <header className="flex justify-between items-center w-full h-16 px-6 bg-blue-gray-300/70 shadow-md fixed lg:static top-0 z-50 font-tajawal">
       <div className="text-xl font-semibold text-gray-800">
         <Link href="/">LOGO</Link>
       </div>
@@ -91,45 +85,71 @@ export default function Nav() {
             </li>
           ))}
           <li>
-            <Menu>
-              <MenuHandler>
+            <MenulistGlobal
+              keyProps={1}
+              icon={
                 <span className="text-white flex items-center gap-2 cursor-pointer">
                   <PiShoppingCartBold color="white" /> {carrito.length || 0}
                 </span>
-              </MenuHandler>
-              <MenuList className="flex flex-col items-start gap-2">
-                <button className="bg-transparent hover:bg-blue-gray-200/50 w-full text-start rounded-lg p-1" onClick={handleOpenResumen}>
-                  Ver Resumen{" "}
-                </button>
-                <Link
-                  href={"/carrito"}
-                  className="bg-transparent hover:bg-blue-gray-200/50 w-full text-start rounded-lg p-1"
-                >
-                  Carrito
-                </Link>
-              </MenuList>
-            </Menu>
+              }
+              listaDelMenu={
+                <div>
+                  {" "}
+                  <button
+                    className="bg-transparent hover:bg-blue-gray-200/50 w-full text-start rounded-lg p-1"
+                    onClick={handleOpenResumen}
+                  >
+                    Ver Resumen{" "}
+                  </button>
+                  <Link
+                    href={"/carrito"}
+                    className="bg-transparent hover:bg-blue-gray-200/50 w-full text-start rounded-lg p-1"
+                  >
+                    Carrito
+                  </Link>
+                </div>
+              }
+            />
           </li>
-          {isOpenResumen && createPortal(<ModalsContainter handleOpenResumen={handleOpenResumen} isOpenResumen={isOpenResumen}/>,document.body)}
+          {isOpenResumen &&
+            createPortal(
+              <ModalsContainter
+                handleOpenResumenAction={handleOpenResumen}
+                isOpenResumen={isOpenResumen}
+              />,
+              document.body
+            )}
           <li className="flex gap-2">
-            <button
-              onClick={() => {
-                router.push("/");
-              }}
-              className={`bg-black text-white ${
-                !accessToken ? "flex" : "hidden"
-              }`}
-            >
-              Iniciar session
-            </button>
-            <button
-              onClick={handleCerrarSession}
-              className={`bg-black text-white ${
-                !accessToken ? "hidden" : "flex"
-              }`}
-            >
-              Cerrar session
-            </button>
+            <MenulistGlobal
+              keyProps={2}
+              icon={
+                <span className="flex items-center gap-2">
+                  <PiUser size={20} color="black" /> {username}
+                </span>
+              }
+              listaDelMenu={
+                <div>
+                  <button
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                    className={`bg-black text-white ${
+                      !accessToken ? "flex" : "hidden"
+                    }`}
+                  >
+                    Iniciar session
+                  </button>
+                  <button
+                    onClick={handleCerrarSession}
+                    className={`bg-black text-white ${
+                      !accessToken ? "hidden" : "flex"
+                    }`}
+                  >
+                    Cerrar session
+                  </button>
+                </div>
+              }
+            />
           </li>
         </ul>
       </nav>

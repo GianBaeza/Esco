@@ -1,4 +1,3 @@
-"use client";
 import { useStoreCarrito } from "@/context/StoreGlobal";
 import { formatPrecio } from "@/context/utilities/formatearPrecio";
 import React from "react";
