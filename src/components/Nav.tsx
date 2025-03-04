@@ -9,6 +9,8 @@ import Swal from "sweetalert2";
 import { createPortal } from "react-dom";
 import ModalsContainter from "@/features/carrito/components/ModalsContainter";
 import MenulistGlobal from "./MenuList/MenulistGlobal";
+import Image from "next/image";
+import logo from "../../public/xing.png";
 
 interface NavLink {
   nombre: string;
@@ -54,9 +56,11 @@ export default function Nav() {
   };
 
   return (
-    <header className="flex justify-between items-center w-full h-16 px-6 bg-blue-gray-300/70 shadow-md fixed lg:static top-0 z-50 font-tajawal">
+    <header className="flex justify-between items-center w-full h-16 px-6 bg-blue-gray-300/5 shadow-md fixed lg:static top-0 z-50 font-tajawal">
       <div className="text-xl font-semibold text-gray-800">
-        <Link href="/">LOGO</Link>
+        <Link href="/">
+          <Image src={logo} alt="logo" height={40} width={40} />
+        </Link>
       </div>
 
       <div className="lg:hidden ">
@@ -124,7 +128,8 @@ export default function Nav() {
               keyProps={2}
               icon={
                 <span className="flex items-center gap-2">
-                  <PiUser size={20} color="black" /> {username}
+                  <PiUser size={20} color="white" className="cursor-pointer" />{" "}
+                  {username}
                 </span>
               }
               listaDelMenu={

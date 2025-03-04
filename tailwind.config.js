@@ -6,6 +6,7 @@ module.exports = withMT({
     extend: {
       backgroundImage: {
         "background-home-seccion1": "url('/seccion1background.jpg')",
+        "background-login": "url(/imagenLogin.jpg)",
       },
       fontFamily: {
         lora: ["Lora", "serif"],
