@@ -3,7 +3,7 @@ import ProductsDestac from "@/features/home/ProductsDestac";
 import QuienesSomos from "@/features/home/QuienesSomos";
 import TotalVentas from "@/features/home/TotalVentas";
 import { Product } from "@/features/Interface/Seccion1";
-import { getProductAlls } from "@/services_api/fetchApi";
+import { getProductAlls } from "@/services/fetchApi";
 import { ToastContainer } from "react-toastify";
 
 export default async function Home() {

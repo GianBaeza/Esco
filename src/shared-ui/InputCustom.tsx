@@ -1,6 +1,5 @@
 "use client";
-
-import React from "react";
+import React, { useState } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
 interface InputProps {
@@ -25,14 +24,26 @@ const InputCustom = ({
   register,
   ...rest
 }: InputProps) => {
+  const [isFocused, setIsFocused] = useState(false); // Estado para controlar el foco
+
+  // Determina si el input tiene un valor
+  const hasValue = value && value.trim() !== "";
+
+  // Clase condicional para el fondo transparente
+  const transparentBackgroundClass =
+    hasValue || isFocused ? "bg-transparent" : "";
+
   return (
     <input
       {...register}
       type={type}
       value={value}
       onChange={onChange}
+      autoComplete="off"
+      onFocus={() => setIsFocused(true)} // Maneja el foco
+      onBlur={() => setIsFocused(false)} // Maneja la pérdida de foco
       placeholder={placeholder}
-      className={`w-full p-1  text-base border border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-xl ${className} text-black focus:border focus:border-b-purple-300`}
+      className={`w-full p-1 text-base border-b border-black bg-transparent focus:outline-none focus:ring-0 ${className} ${transparentBackgroundClass} text-black focus:bg-transparent`}
       {...rest}
     />
   );
