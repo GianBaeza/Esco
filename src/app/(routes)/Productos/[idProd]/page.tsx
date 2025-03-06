@@ -7,11 +7,11 @@ const getDetailProdcts = async (idProd: number) => {
     const response = await fetch(`https://dummyjson.com/products/${idProd}`);
     return response.json();
   } catch (error) {
-    console.log(error);
+    (error);
   }
 };
 
-export default async function Page({ params }) {
+export default async function Page({ params }:any) {
   const { idProd } = params;
 
   const detail = (await getDetailProdcts(idProd)) || [];

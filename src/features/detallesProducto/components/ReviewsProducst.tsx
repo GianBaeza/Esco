@@ -14,7 +14,7 @@ interface ReviewsProducstProps {
 }
 
 export default function ReviewsProducst({ reviewsProd }: ReviewsProducstProps) {
-  console.log(reviewsProd);
+  (reviewsProd);
   return (
     <div className="w-10/12 m-auto bg-black/5 rounded-lg h-auto p-5 flex flex-col gap-5">
       <header>

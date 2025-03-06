@@ -58,7 +58,7 @@ export default function Nav() {
   const handleOpenResumen = ()=>{
     setIsOpenResumen(!isOpenResumen)
   }
-  console.log(isOpenResumen)
+  (isOpenResumen)
   return (
     <header className="flex justify-between items-center w-full h-16 px-6 bg-black shadow-md fixed lg:static top-0 z-50 font-tajawal">
       <div className="text-xl font-semibold text-gray-800">

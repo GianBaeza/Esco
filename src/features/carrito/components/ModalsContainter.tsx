@@ -22,7 +22,7 @@ export default function ModalsContainter({ handleOpenResumen, isOpenResumen }: P
   const { carrito,totalDelCarrito} = useStoreCarrito();
   const {refresh, push} = useRouter()
 
-  console.log(carrito);
+  (carrito);
   const handleBack = ()=>{
     refresh()
     handleOpenResumen()
@@ -33,7 +33,7 @@ export default function ModalsContainter({ handleOpenResumen, isOpenResumen }: P
   }
 
   const totalDelCarritoPrecio= totalDelCarrito()
-  console.log(totalDelCarritoPrecio)
+  (totalDelCarritoPrecio)
   return (
       <Dialog
         open={isOpenResumen}

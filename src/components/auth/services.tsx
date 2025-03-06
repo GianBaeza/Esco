@@ -22,7 +22,7 @@ export const loginUser = async (
 
     if (!response.ok) {
       const errorData = await response.json();
-      console.log(errorData);
+      (errorData);
 
       throw new Error(errorData.message || "Error al iniciar sesión");
     }
