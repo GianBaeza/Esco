@@ -35,8 +35,8 @@ export default function ModalsContainter({
     handleOpenResumenAction();
   };
 
-  const totalDelCarritoPrecio = totalDelCarrito();
-
+  const totalDelCarritoPrecio= totalDelCarrito()
+  console.log(totalDelCarritoPrecio)
   return (
     <Dialog
       open={isOpenResumen}

@@ -8,10 +8,10 @@ import { useState } from "react";
 import { PiShoppingCartBold, PiUser } from "react-icons/pi";
 import Swal from "sweetalert2";
 import { createPortal } from "react-dom";
-import ModalsContainter from "@/features/carrito/components/ModalsContainter";
-import MenulistGlobal from "./MenuList/MenulistGlobal";
 import Image from "next/image";
 import logo from "../../public/xing.png";
+import MenulistGlobal from "./MenuList/MenulistGlobal";
+import ModalsContainter from "@/features/carrito/components/ModalsContainter";
 
 interface NavLink {
   nombre: string;

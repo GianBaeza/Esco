@@ -7,7 +7,7 @@ const getDetailProdcts = async (idProd: number) => {
     const response = await fetch(`https://dummyjson.com/products/${idProd}`);
     return response.json();
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 };
 
