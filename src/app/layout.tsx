@@ -22,21 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lora.className} ${tajawal.className}`}>
-        {/* Contenedor principal */}
-        <div className="flex flex-col">
-          {/* Fondo con imagen y capa semitransparente */}
-          <div className="absolute inset-0 bg-background-login bg-cover bg-center bg-no-repeat"></div>
-          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
-
-          {/* Contenido principal */}
-          <div className="relative z-10 flex-1 min-h-screen">
-            <Nav />
-            {children}
-          </div>
-          <footer className="relative z-10 text-center bg-black bg-opacity-75 text-white">
-            footer global
-          </footer>
-        </div>
+        <Nav />
+        {children}
+        <footer className="relative z-10 text-center bg-black bg-opacity-75 text-white">
+          footer global
+        </footer>
       </body>
     </html>
   );

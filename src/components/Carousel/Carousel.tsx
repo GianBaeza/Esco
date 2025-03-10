@@ -9,7 +9,6 @@ interface Props {
   images: string[];
 }
 export const Gallery = ({ images }: Props) => {
-  console.log(images);
   return (
     <Carousel
       cols={1}

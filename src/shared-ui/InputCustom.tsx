@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import { UseFormRegisterReturn } from "react-hook-form";
 
@@ -24,12 +23,10 @@ const InputCustom = ({
   register,
   ...rest
 }: InputProps) => {
-  const [isFocused, setIsFocused] = useState(false); // Estado para controlar el foco
+  const [isFocused, setIsFocused] = useState(false);
 
-  // Determina si el input tiene un valor
   const hasValue = value && value.trim() !== "";
 
-  // Clase condicional para el fondo transparente
   const transparentBackgroundClass =
     hasValue || isFocused ? "bg-transparent" : "";
 

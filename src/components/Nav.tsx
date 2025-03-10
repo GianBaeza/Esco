@@ -3,6 +3,7 @@ import { useStoreCarrito, useStoreLogin } from "@/context/StoreGlobal";
 import Hamburger from "hamburger-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 import { PiShoppingCartBold, PiUser } from "react-icons/pi";
 import Swal from "sweetalert2";
@@ -82,7 +83,7 @@ export default function Nav() {
             <li key={index} className="text-center">
               <Link
                 href={url}
-                className="text-white hover:text-gray-300 hover:underline transition"
+                className="text-black hover:text-gray-300 hover:underline transition"
               >
                 {nombre}
               </Link>
@@ -92,8 +93,8 @@ export default function Nav() {
             <MenulistGlobal
               keyProps={1}
               icon={
-                <span className="text-white flex items-center gap-2 cursor-pointer">
-                  <PiShoppingCartBold color="white" /> {carrito.length || 0}
+                <span className="text-black flex items-center gap-2 cursor-pointer">
+                  <PiShoppingCartBold color="black" /> {carrito.length || 0}
                 </span>
               }
               listaDelMenu={
@@ -127,9 +128,17 @@ export default function Nav() {
             <MenulistGlobal
               keyProps={2}
               icon={
-                <span className="flex items-center gap-2">
-                  <PiUser size={20} color="white" className="cursor-pointer" />{" "}
-                  {username}
+                <span
+                  className={`text-black flex items-center gap-2 cursor-pointer `}
+                >
+                  <PiUser
+                    size={20}
+                    color="black"
+                    className={`cursor-pointer ${
+                      !accessToken ? "hidden" : "flex"
+                    }`}
+                  />{" "}
+                  {!accessToken ? "Cuenta" : username}
                 </span>
               }
               listaDelMenu={
@@ -138,7 +147,7 @@ export default function Nav() {
                     onClick={() => {
                       router.push("/");
                     }}
-                    className={`bg-black text-white ${
+                    className={` text-black ${
                       !accessToken ? "flex" : "hidden"
                     }`}
                   >
@@ -146,7 +155,7 @@ export default function Nav() {
                   </button>
                   <button
                     onClick={handleCerrarSession}
-                    className={`bg-black text-white ${
+                    className={`bg-black text-black ${
                       !accessToken ? "hidden" : "flex"
                     }`}
                   >
