@@ -1,5 +1,3 @@
-"use client";
-
 import CountUp from "@/components/countUp/CountUp";
 import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
 import React from "react";

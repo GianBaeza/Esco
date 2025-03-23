@@ -12,7 +12,7 @@ interface Props {
 export default function ContentAllProducts({ allProducts }: Props) {
   const [query, setQuery] = useState<string>("");
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setQuery(value.trim());
   };

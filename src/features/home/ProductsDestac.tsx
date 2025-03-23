@@ -5,7 +5,6 @@ import CardProducts from "../Productos/Components/CardProducst";
 import MenuNavigate from "./Components/MenuNavigate";
 import { ProductsDestacProps } from "../Interface/Seccion1";
 import SpotlightCard from "@/components/SpotlightCard/SpotlightCard";
-import { log } from "@/context/utilities/consoleGlobal";
 
 export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
   const [producsFiltered, setProducsFiltered] = useState(prodsDestac);
@@ -19,7 +18,7 @@ export default function ProductsDestac({ prodsDestac }: ProductsDestacProps) {
         : prodsDestac.filter((prod) => prod.category === category.toLowerCase())
     );
   };
-  log(producsFiltered, "DESDE LA CONSOLA GLOBAL")
+
   return (
     <main className="w-full h-full flex flex-col flex-wrap justify-center item-start gap-5 pt-5 p-5 bg-black">
       <header className="w-10/12 pt-1 m-auto">

@@ -6,6 +6,7 @@ import { ProductAdd, ProductDetalle } from "./Interface/Interface";
 import EmblaCarousel from "@/components/CarouselDetallesProd/EmblaCarousel";
 import { Notificacion } from "@/components/alerta/Notificacion";
 import { ToastContainer } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface Props {
   detallesDelProducto: ProductDetalle;
@@ -17,6 +18,7 @@ export default function CardDetalles({ detallesDelProducto }: Props) {
   const [cantidad, setCantidad] = useState(0);
   const [mensajeError, setMensajeError] = useState(false);
 
+  const { push } = useRouter();
   if (!detallesDelProducto) {
     return <p>Producto no encontrado</p>;
   }
@@ -93,7 +95,10 @@ export default function CardDetalles({ detallesDelProducto }: Props) {
             >
               Agregar al carrito
             </button>
-            <button className="text-black hover:text-white border py-1 px-3 rounded-lg hover:bg-gray-600 transition duration-300">
+            <button
+              className="text-black hover:text-white border py-1 px-3 rounded-lg hover:bg-gray-600 transition duration-300"
+              onClick={() => push("/carrito")}
+            >
               Comprar ahora
             </button>
           </div>

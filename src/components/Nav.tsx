@@ -155,7 +155,7 @@ export default function Nav() {
                   </button>
                   <button
                     onClick={handleCerrarSession}
-                    className={`bg-black text-black ${
+                    className={` text-black ${
                       !accessToken ? "hidden" : "flex"
                     }`}
                   >

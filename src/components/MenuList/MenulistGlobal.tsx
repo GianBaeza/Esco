@@ -17,9 +17,9 @@ export default function MenulistGlobal({
       <MenuHandler>{icon}</MenuHandler>
       <MenuList
         className="flex flex-col items-start gap-2"
-        placeholder={undefined}
-        onPointerEnterCapture={undefined}
-        onPointerLeaveCapture={undefined}
+        placeholder={null}
+        onPointerEnterCapture={null}
+        onPointerLeaveCapture={null}
       >
         {listaDelMenu}
       </MenuList>

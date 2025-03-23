@@ -18,10 +18,10 @@ module.exports = withMT({
     function ({ addUtilities }) {
       addUtilities({
         ".colorTexto": {
-          color: "white",
+          color: "black",
         },
         ".colorTextoOpacity": {
-          color: "#ffffffb3",
+          color: "#black",
         },
       });
     },

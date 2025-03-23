@@ -23,10 +23,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${lora.className} ${tajawal.className}`}>
         <Nav />
-        {children}
-        <footer className="relative z-10 text-center bg-black bg-opacity-75 text-white">
-          footer global
-        </footer>
+        <main className="min-h-screen w-full">{children}</main>
+        <footer className="">footer global</footer>
       </body>
     </html>
   );

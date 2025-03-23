@@ -7,14 +7,18 @@ const getDetailProdcts = async (idProd: number) => {
     const response = await fetch(`https://dummyjson.com/products/${idProd}`);
     return response.json();
   } catch (error) {
-    console.log(error.message);
+    if (error instanceof Error) {
+      console.log(error.message); // Ahora TypeScript sabe que error es de tipo Error
+    } else {
+      console.log("Ocurrió un error desconocido:", error);
+    }
   }
 };
 
-export default async function Page(params: { idProd: number }) {
+export default async function Page({ params }: { params: { idProd: string } }) {
   const { idProd } = params;
 
-  const detail = (await getDetailProdcts(idProd)) || [];
+  const detail = (await getDetailProdcts(Number(idProd))) || [];
   const { title, reviews } = detail;
 
   return (
